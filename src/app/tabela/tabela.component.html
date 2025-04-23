@@ -1,0 +1,43 @@
+<table [ngClass]="{'promocja': produkt.czyPromocja}" *ngIf="widoczny"> 
+
+    <thead> 
+      <tr> 
+        <th>Nazwa  </th> 
+        <th>Cena  </th> 
+        <th>Data Stworzenia  </th> 
+        <th>Liczba Sztuk  </th>
+        <th>Akcje  </th> 
+      </tr> 
+    </thead> 
+  
+    <tbody> 
+      <tr > 
+  
+        <td>{{produkt.nazwa}}</td> 
+        <td>{{produkt.cena}}</td>
+        <td>{{produkt.dataUtworzenia.getDay()}}.{{produkt.dataUtworzenia.getMonth()}}.{{produkt.dataUtworzenia.getFullYear()}}r</td> 
+        <td>{{produkt.liczbaSztuk}}</td>
+        <td><button (click)="OnDodajClick()">Dodaj</button>
+            <button (click)="widoczny = false">ukryj</button></td> 
+      </tr> 
+
+    </tbody>
+  </table> 
+
+  <table *ngIf="!widoczny">
+    <tr > 
+  
+        <td colspan="4"> 
+
+            {{ produkt.nazwa }} 
+        
+        </td> 
+        <td>
+            <button (click)="widoczny = true">Rozwiń</button> 
+        </td>
+      </tr> 
+
+  </table>
+
+
+  
